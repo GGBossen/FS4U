@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Musik & Portfolio</title>
+    <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+
+    <video autoplay muted loop playsinline id="bgVideo">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div id="introScreen">
+        <h1>VÄLKOMMEN</h1>
+        <button id="enterBtn">ENTER SITE</button>
+    </div>
+
+    <audio id="producerTag">
+        <source src="PRODUCERTAG2025FLYINGSPEAKER.wav" type="audio/wav">
+    </audio>
+
+    <main id="mainContent" style="display:none;">
+        
+        <header>
+            <h1>PRODUCER 2025</h1>
+        </header>
+
+        <div class="glass-panel">
+            <h2>🔥 Senaste Släpp</h2>
+            
+            <div class="track">
+                <p>Track 01</p>
+                <audio controls>
+                    <source src="lat1.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+
+            <div class="track">
+                <p>Track 02</p>
+                <audio controls>
+                    <source src="lat2.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+
+            <div class="track">
+                <p>Track 03</p>
+                <audio controls>
+                    <source src="lat3.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const enterBtn = document.getElementById('enterBtn');
+        const introScreen = document.getElementById('introScreen');
+        const mainContent = document.getElementById('mainContent');
+        const producerTag = document.getElementById('producerTag');
+
+        enterBtn.addEventListener('click', () => {
+            // 1. Spela upp producer tag
+            producerTag.play();
+            
+            // 2. Tona ut introskärmen
+            introScreen.style.opacity = '0';
+            
+            // 3. Vänta lite och visa innehållet
+            setTimeout(() => {
+                introScreen.style.display = 'none';
+                mainContent.style.display = 'block';
+                // Liten animation för innehållet
+                mainContent.style.opacity = '0';
+                setTimeout(() => { mainContent.style.opacity = '1'; }, 100);
+            }, 1000);
+        });
+    </script>
+
+</body>
+</html>
